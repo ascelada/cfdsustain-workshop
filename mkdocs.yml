@@ -1,0 +1,60 @@
+site_name: Workshop CFDSUSTAIN - OpenLB
+site_description: Workshop CFDSUSTAIN - OpenLB
+site_author: Andreas Celada
+site_url: https://ascelada.github.io/cfdsustain-workshop/
+
+theme:
+  name: material
+  palette:
+    primary: 'indigo'
+    accent: 'pink'
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.sections
+    - content.code.copy
+
+nav:
+  - Visão Geral: visao-geral.md
+  - Setup:
+    - Script de Setup: setup/setup.md
+    - Dependencias: prerequisitos.md
+  - Cavidade 2D:
+    - Problema: cavidade2d/01-problema.md
+    - Executar: cavidade2d/02-compilar-executar.md
+    - Parametros: cavidade2d/03-parametros.md
+    - Código: cavidade2d/04-codigo.md
+    - Diagnosticos: cavidade2d/05-diagnosticos.md
+  - Cilindro 2D:
+    - Visão Geral: cilindro2d/index.md
+    - Materiais: cilindro2d/01-materiais.md
+    - Geometria: cilindro2d/02-geometria.md
+    - Tarefas:
+      - Queda de Pressão: cilindro2d/03-tarefa1-pressao.md
+      - Startup e Contorno: cilindro2d/03-tarefa1-2-startup.md
+    - Código:
+      - Código Original: cilindro2d/original.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed 
+  - attr_list
+  - md_in_html     # se você usa === "Tabs"
+
+extra_javascript:
+  - /javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
