@@ -1,6 +1,6 @@
 # Diagnósticos de Estabilidade
 
-**Reynolds muito alto** → use resolução maior ou troque BGK por TRT/MRT.
+**Reynolds muito alto** → use resolução maior.
 Frequência de relaxação  
 
 $$  

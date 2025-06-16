@@ -9,4 +9,4 @@ inspirado no *benchmark* de Schäfer & Turek.
 2. Medir a **queda de pressão** ao redor do obstáculo e estudá‑la para vários raios.  
 3. Substituir o cilindro por outros objetos e comparar os resultados.
 
-> Nos arquivos seguintes, cada etapa é detalhada para facilitar **copiar & colar** trechos de código.
+

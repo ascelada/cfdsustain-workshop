@@ -8,13 +8,12 @@ estabilidade e convergência.
 
 ## Passo 1 · Executar o Caso Original (ramp = 40 % do tempo)
 
+Para isso pode copiar o código original [aqui](original.md).
 ```bash
 cd examples/forBeginners/cylinder2d
 make clean && make
 mpirun -np 4 ./cylinder2d
 ```
-
-Registre a primeira linha do log que contenha `pressureDrop`.
 
 ---
 

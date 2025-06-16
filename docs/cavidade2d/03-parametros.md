@@ -17,4 +17,4 @@ const T physViscosity = 0.01;  // exemplo: Re ≈ 100
     make && mpirun -np 2 cavity2d
     ```
 
-Para \(Re = 10^4\) o código diverge. Veja *Diagnósticos* para estratégias de estabilidade.
+Para \(Re = 10^4\) o código diverge. Veja [*Diagnósticos*](05-diagnosticos.md) para estratégias de estabilidade.

@@ -13,25 +13,26 @@ theme:
     - navigation.top
     - navigation.sections
     - content.code.copy
+    - navigation.instant
 
 nav:
-  - Visão Geral: visao-geral.md
+  - Home: index.md
   - Setup:
+    - Dependencias: setup/prerequisitos.md
     - Script de Setup: setup/setup.md
-    - Dependencias: prerequisitos.md
   - Cavidade 2D:
     - Problema: cavidade2d/01-problema.md
     - Executar: cavidade2d/02-compilar-executar.md
     - Parametros: cavidade2d/03-parametros.md
-    - Código: cavidade2d/04-codigo.md
+    # - Código: cavidade2d/04-codigo.md
     - Diagnosticos: cavidade2d/05-diagnosticos.md
   - Cilindro 2D:
-    - Visão Geral: cilindro2d/index.md
-    - Materiais: cilindro2d/01-materiais.md
-    - Geometria: cilindro2d/02-geometria.md
+    - Introdução: cilindro2d/index.md
+    - Geometria: cilindro2d/geometria.md
+    - Visão Geral: cilindro2d/visao-geral.md
     - Tarefas:
-      - Queda de Pressão: cilindro2d/03-tarefa1-pressao.md
-      - Startup e Contorno: cilindro2d/03-tarefa1-2-startup.md
+      - Queda de Pressão: cilindro2d/tarefa1.md
+      - Startup e Contorno: cilindro2d/tarefa1b.md
     - Código:
       - Código Original: cilindro2d/original.md
 
@@ -42,7 +43,11 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.arithmatex:
       generic: true
   - admonition
@@ -52,9 +57,10 @@ markdown_extensions:
   - md_in_html     # se você usa === "Tabs"
 
 extra_javascript:
-  - /javascripts/katex.js
+  - javascripts/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
 extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css
+

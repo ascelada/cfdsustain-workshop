@@ -2,6 +2,7 @@
 
 !!! note "Limpeza e build"
     ```bash
+    cd examples/forBegginers/cavity2d
     make clean && make
     ```
 
@@ -16,4 +17,3 @@ Os resultados VTK serão escritos em **`tmp/vtkData/cavity2d/`**.
 
 1. Abra *ParaView* → **File ▸ Open** → `cavity2d.pvd`.
 2. Clique **Apply** e pressione *Play* na timeline.
-3. Use filtros como **Glyph** ou **Stream Tracer** para examinar o campo de velocidades.

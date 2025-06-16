@@ -1,13 +1,5 @@
 # 2 · Geometria do Problema
 
-```text
-             ▲ y
-  0.41 m + 1 célula
-  ┌─────────────────────────┐
-  │           ●           │  Canal
-  └─────────────────────────┘ ► x   2.20 m
-```
-
 **Parâmetros** em unidades SI:
 
 ```cpp
@@ -21,3 +13,10 @@ const T radiusCylinder  = 0.05;     // m
 O perfil de velocidade na entrada é um **Poiseuille** com
 $u_{max}=0.2$   m·s⁻¹, resultando em $Re = 20$.
 
+## Esquema
+
+![geometria](img/image.png)
+
+## Solução esperada
+
+![solucao](img/image-1.png)
