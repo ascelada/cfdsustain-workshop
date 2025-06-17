@@ -4,7 +4,7 @@
 ## Passo 1 · Executar Caso-Base (cilindro, r = 0.05 m)
 
 ```bash
-cd examples/forBeginners/cylinder2d
+cd $OLB_ROOT/examples/forBeginners/cylinder2d
 make clean && make
 mpirun -np 4 ./cylinder2d
 ```
@@ -55,30 +55,16 @@ Repita para **≥ 3 valores** (0.05, 0.10, 0.15 m…).
 
 ---
 
+!!! example "Extra"
+      Aumente o número de reynolds e veja os vórtices se formarem! Note que precisará aumentar o tempo de simulação!
+
 ## Passo 4 · Trocar Cilindro por **Quadrado**
 
-### 4.1 · Definir o quadrado
-
-```cpp
-// Quadrado 0.10 m × 0.10 m centrado no mesmo ponto
-IndicatorCuboid2D<T> square({0.10, 0.10},
-                            {centerCylinderX, centerCylinderY});
-```
-
-### 4.2 · Atualizar Funções
-
-Substitua `circle` por `square` nas chamadas:
-
+### 4.1 · Defina
 
 #### 1 · Parâmetros iniciais
 
 Localize:
-
-```cpp
-const T radiusCylinder = 0.05;      // raio do cilindro (m)
-```
-
-Substitua por:
 
 ```cpp
 // --- QUADRADO ---              ↓ lado em metros
@@ -103,27 +89,14 @@ prepareLattice(sLattice, converter, superGeometry, circle);
 
 ```cpp
 Vector center{centerCylinderX, centerCylinderY};
-IndicatorCuboid2D<T> square({sideSquare, sideSquare}, center);
+IndicatorCuboid2D<T> square(sideSquare, sideSquare, center);
 
 prepareGeometry(converter, superGeometry, square);
 ...
 prepareLattice(sLattice, converter, superGeometry, square);
 ```
 
----
-
-#### 3 · `prepareGeometry()` — mudar o comentário + renomear
-
-Dentro de `prepareGeometry(...)`, **troque apenas** a linha que renomeia material 5:
-
-```cpp
-// Set material number for square
-superGeometry.rename(1, 5, square);
-```
-
----
-
-#### 4 · `prepareLattice()` — usar Bounce-Back em vez de Bouzidi
+#### 3 · `prepareLattice()` — usar Bounce-Back em vez de Bouzidi
 
 No início de `prepareLattice(...)`, **comente** a chamada Bouzidi
 e adicione Bounce-Back:
@@ -135,7 +108,7 @@ boundary::set<boundary::BounceBack>(sLattice, superGeometry, 5);
 
 ---
 
-#### 5 · `getResults()` — pontos para medir pressão
+#### 4 · `getResults()` — pontos para medir pressão
 
 Encontre essas três linhas quase no fim da função:
 
@@ -152,7 +125,7 @@ point1[0] = centerCylinderX - halfSide;
 point2[0] = centerCylinderX + halfSide;
 ```
 
-*(as coordenadas **y** não mudam)*
+> *(as coordenadas **y** não mudam)*
 
 ---
 
@@ -170,12 +143,21 @@ mpirun -np 4 ./cylinder2d
 No **`main()`**, logo depois de criar o primeiro `square`, adicione:
 
 ```cpp
-// Segundo quadrado deslocado 0.10 m à direita
-IndicatorCuboid2D<T> square2({sideSquare, sideSquare},
-                             {centerCylinderX + 0.10, centerCylinderY});
+Vector<T,2> center2 {centerCylinderX + 0.2, centerCylinderY}
+// Segundo quadrado deslocado 0.2 m à direita
+IndicatorCuboid2D<T> square2(sideSquare, sideSquare,
+                             center2);
 ```
 
 ### 5.2 · `prepareGeometry()` — renomear material
+Na definição adicione mais um objeto:
+
+```cpp
+void prepareGeometry(const UnitConverter<T, DESCRIPTOR>& converter,
+                     SuperGeometry<T, 2>&                superGeometry,
+                     IndicatorF2D<T>&                    circle,
+                     IndicatorF2D<T>&                    square2)
+```
 
 Dentro de `prepareGeometry(...)`, após a linha que renomeia o primeiro quadrado, adicione:
 
@@ -192,7 +174,6 @@ Logo após definir o Bounce-Back para o material 5, inclua:
 // Material=6 → segundo quadrado (bounce-back)
 boundary::set<boundary::BounceBack>(sLattice, superGeometry, 6);
 ```
-
 ??? note "Nota"
       Se preferir um **círculo** para o segundo objeto, use
       `IndicatorCircle2D` e troque Bounce-Back por:
@@ -200,6 +181,7 @@ boundary::set<boundary::BounceBack>(sLattice, superGeometry, 6);
       ```cpp
       setBouzidiBoundary(sLattice, superGeometry, 6, circle2);
       ```
+      Neste caso trá que alterar a definição do método também de forma que consiga passar ao segundo circulo!
 
 ---
 

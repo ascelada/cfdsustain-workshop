@@ -29,12 +29,15 @@ nav:
   - Cilindro 2D:
     - Introdução: cilindro2d/index.md
     - Geometria: cilindro2d/geometria.md
-    - Visão Geral: cilindro2d/visao-geral.md
+    # - Visão Geral: cilindro2d/visao-geral.md
     - Tarefas:
       - Queda de Pressão: cilindro2d/tarefa1.md
       - Startup e Contorno: cilindro2d/tarefa1b.md
     - Código:
       - Código Original: cilindro2d/original.md
+  - Bifurcação:
+    - Introdução: particulas/index.md
+    - Tarefa: particulas/tarefa.md
 
 markdown_extensions:
   - pymdownx.highlight:
