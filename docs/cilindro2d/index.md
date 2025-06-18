@@ -10,3 +10,4 @@ inspirado no *benchmark* de Schäfer & Turek.
 3. Substituir o cilindro por outros objetos e comparar os resultados.
 
 
+![alt text](img/normal.gif)

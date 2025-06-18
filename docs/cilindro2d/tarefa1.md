@@ -15,8 +15,6 @@ Exemplo de saída:
 [getResults] pressure1=0.126632; pressure2=0.0049181; pressureDrop=0.121714
 ```
 
----
-
 ## Passo 2 · Alterar o Raio do Cilindro
 
 Edite **`cylinder2d.cpp`**:
@@ -51,7 +49,7 @@ Repita para **≥ 3 valores** (0.05, 0.10, 0.15 m…).
 |  0.15 |         … |         … |       … |
 
 ??? question "Como a pressão varia com o raio?"
-      *Conclua se Δp ∝ r (arrasto viscoso) ou Δp ∝ r² (arrasto de forma).*
+      *Δp ∝ r (arrasto viscoso) ou Δp ∝ r² (arrasto de forma)?*
 
 ---
 
@@ -64,7 +62,7 @@ Repita para **≥ 3 valores** (0.05, 0.10, 0.15 m…).
 
 #### 1 · Parâmetros iniciais
 
-Localize:
+Defina junto com os outros parametros do problema:
 
 ```cpp
 // --- QUADRADO ---              ↓ lado em metros

@@ -6,6 +6,13 @@ Altere a viscosidade em `cavity2d.cpp`:
 const T physViscosity = 0.001;  // exemplo: Re ≈ 100
 ```
 
+??? note
+    Lembre-se que 
+    $$
+    Re = \frac{L\,U_{\text{lid}}}{\nu}.
+    $$
+
+
 | Caso | \(\nu\) (m²/s) | \(Re\) esperado | Observação |
 |----:|--------------:|---------------:|:-----------|
 | A | 0.001 | 1000 | Solução estável |

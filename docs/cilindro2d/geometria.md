@@ -17,6 +17,6 @@ $u_{max}=0.2$   m·s⁻¹, resultando em $Re = 20$.
 
 ![geometria](img/image.png)
 
-## Solução esperada
+## Exemplo de Solução esperada
 
-![solucao](img/image-1.png)
+![alt text](img/vortices.gif)
