@@ -1,9 +1,8 @@
 # Escoamento em Bifurcação – Abordagem Euler-Lagrange
 
-![Esquema da bifurcação](img/bifurcacao_esquema.png)
 
 > **Visão geral**  
-> Estudamos um fluido incompressível escoando através de uma bifurcação planar em regime permanente.  
+> Um fluido incompressível escoando através de uma bifurcação em regime permanente.  
 > As partículas (fase dispersa) são rastreadas individualmente; quando tocam a parede aderente, são
 > removidas do domínio (*capture by adhesion*).
 
@@ -35,22 +34,23 @@ Para cada partícula $i$:
 
 - **Inércia da partícula**  
   $$
-    \operatorname{St} = \frac{\rho_p a_i^2}{18\mu}\,\frac{|\mathbf{u}|}{L}
+    \operatorname{St} = \frac{\rho_p r_i^2}{18\mu}\,\frac{|\mathbf{u}|}{L}
   $$
   determina quão bem a partícula segue o fluido — valores altos indicam maior desvio das linhas de corrente.
 
-> **Número de Stokes**  
-> $$
->   \text{St} = \frac{\tau_p}{\tau_f},\qquad
->   \tau_p = \frac{\rho_p a_i^2}{18 \mu},\;
->   \tau_f = \frac{L}{|\mathbf{u}|}.
-> $$
+
+
+<figure markdown="span">
+  ![Particulas](img/PIV_Tracking_R1.gif)
+  <figcaption>By Fzigunov - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=115917430</figcaption>
+</figure>
+
 
 ---
 
 ## 2 · Condição de Parede Adesiva
 
-- Quando a distância centro-parede $d_i \le a_i$  
+- Quando a distância centro-parede $d_i \le r_i$  
   → **colisão adesiva** ⇒ remover partícula do domínio.  
 - Sem ressalto nem fragmentação; partículas capturadas não retornam ao escoamento.
 
