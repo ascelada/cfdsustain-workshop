@@ -79,7 +79,9 @@ const T sideSquare     = 0.10;      // 0.10 m × 0.10 m
 Vector center{centerCylinderX, centerCylinderY};
 IndicatorCircle2D<T> circle(center, radiusCylinder);
 prepareGeometry(converter, superGeometry, circle);
-   ...
+
+// === 3rd Step: Prepare Lattice ===
+SuperLattice<T,DESCRIPTOR> sLattice(superGeometry);
 prepareLattice(sLattice, converter, superGeometry, circle);
 ```
 
@@ -88,9 +90,10 @@ prepareLattice(sLattice, converter, superGeometry, circle);
 ```cpp
 Vector center{centerCylinderX, centerCylinderY};
 IndicatorCuboid2D<T> square(sideSquare, sideSquare, center);
-
 prepareGeometry(converter, superGeometry, square);
-...
+
+// === 3rd Step: Prepare Lattice ===
+SuperLattice<T,DESCRIPTOR> sLattice(superGeometry);
 prepareLattice(sLattice, converter, superGeometry, square);
 ```
 
@@ -106,28 +109,7 @@ boundary::set<boundary::BounceBack>(sLattice, superGeometry, 5);
 
 ---
 
-#### 4 · `getResults()` — pontos para medir pressão
-
-Encontre essas três linhas quase no fim da função:
-
-```cpp
-point1[0] = centerCylinderX - radiusCylinder;
-point2[0] = centerCylinderX + radiusCylinder;
-```
-
-Substitua por:
-
-```cpp
-const T halfSide = sideSquare / 2.;          // metade do lado
-point1[0] = centerCylinderX - halfSide;
-point2[0] = centerCylinderX + halfSide;
-```
-
-> *(as coordenadas **y** não mudam)*
-
----
-
-### 4.3 · Executar 
+### 4. · Executar 
 
 ```bash
 make clean && make

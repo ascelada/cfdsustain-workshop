@@ -8,7 +8,7 @@ Primeiramente, vamos compilar e executar o código com seus parâmetros padrão.
 1.  **Navegue até o diretório do exemplo** no seu terminal.
     ```bash
     cd examples/particles/bifurcation3d/eulerLagrange
-     ```
+    ```
 
 2.  **Copie e cole os seguintes comandos** para limpar compilações anteriores, compilar o código e executá-lo em paralelo com 4 processadores:
 
@@ -42,14 +42,14 @@ Vamos agora testar diferentes raios para observar essa dependência.
 1.  **Modifique o código:** Abra o arquivo `bifurcation3d.cpp` em um editor de texto. Localize a linha que define o raio e altere o valor para `4.0e-4`.
 
     ```cpp
-    // Modifique esta linha
-    const T radius = 4.0e-4;            // particles radius
+        // Modifique esta linha
+        const T radius = 4.0e-4;            // particles radius
     ```
 
 2.  **Recompile e Execute:** Como o arquivo da solução do fluido já existe, esta execução será muito mais rápida.
 
     ```bash
-    make && mpirun -np 4 ./bifurcation3d
+        make && mpirun -np 4 ./bifurcation3d
     ```
 
 3.  **Análise:** Visualize o novo `particles_master.pvd` no ParaView. Observe que, com maior inércia, um número significativamente maior de partículas colide com a parede logo no início da bifurcação e não consegue passar para as saídas. A taxa de escape é menor.
