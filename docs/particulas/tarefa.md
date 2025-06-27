@@ -1,8 +1,6 @@
 
 # Tarefa
 
-Este guia prático irá demonstrar como compilar e rodar a simulação, visualizar os resultados e, em seguida, modificar os parâmetros das partículas para observar o efeito do número de Stokes na sua trajetória e taxa de captura.
-
 #  Compilação e Execução Inicial
 
 Primeiramente, vamos compilar e executar o código com seus parâmetros padrão. Este primeiro passo irá calcular o campo de escoamento do fluido em regime permanente e salvá-lo em disco. As execuções futuras carregarão este campo, acelerando a simulação da fase particulada.
